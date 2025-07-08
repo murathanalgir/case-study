@@ -5,7 +5,7 @@ import { getAllProducts } from '@/app/lib/productService';
 type ProductsPageProps = {};
 
 export default async function ProductsPage({}: ProductsPageProps) {
-  // Fetch current gold price and product list
+
   const goldPrice = await getCurrentGoldPrice();
   const products: ProductType[] = await getAllProducts(goldPrice);
 
