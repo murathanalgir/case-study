@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextResponse } from "next/server";
 import { getCurrentGoldPrice } from "@/app/lib/goldPrice";
 import { getAllProducts } from "@/app/lib/productService";

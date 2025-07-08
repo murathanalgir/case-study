@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 import ProductCard, { Product as ProductType } from '@/app/components/ProductCard';
 import { getCurrentGoldPrice } from '@/app/lib/goldPrice';
 import { getAllProducts } from '@/app/lib/productService';
