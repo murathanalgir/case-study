@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextResponse } from "next/server";
 import { getCurrentGoldPrice } from "@/app/lib/goldPrice";
-import { getAllProducts } from "@/app/lib/productService";
+import { getAllProducts,getProductById } from "@/app/lib/productService";
 
-// interface Params { params: { id: string } }
+interface Params { params: { id: string } }
 
-export async function GET( _req: Request,
-  { params }: { params: { id: string } }) {
+export async function GET(_req: Request, { params }: Params) {
   try {
     const goldPrice = await getCurrentGoldPrice();
     const product = await getProductById(params.id, goldPrice);
@@ -24,8 +23,4 @@ export async function GET( _req: Request,
       { status: 500 }
     );
   }
-}
-
-function getProductById(id: string, goldPrice: number) {
-  throw new Error("Function not implemented.");
 }
