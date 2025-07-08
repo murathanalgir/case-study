@@ -1,4 +1,4 @@
-import productsData from "@/app/data/products.json"
+import productsData from "@/app/data/products.json";
 
 export interface Product {
   id: string;
@@ -16,8 +16,8 @@ export interface ProductWithPrice extends Product {
   price: number;
 }
 
-// In-memory ürünleri başlatır
 let products: Product[] | null = null;
+
 function loadProducts(): void {
   if (products) return;
   products = (productsData as Omit<Product, "id">[]).map((p, idx) => ({
@@ -26,7 +26,6 @@ function loadProducts(): void {
   }));
 }
 
-// Fiyat hesaplama fonksiyonu
 function computePrice(
   popularityScore: number,
   weight: number,
@@ -35,7 +34,6 @@ function computePrice(
   return (popularityScore + 1) * weight * goldPrice;
 }
 
-// Tüm ürünleri fiyatlı olarak al
 export async function getAllProducts(
   goldPrice: number
 ): Promise<ProductWithPrice[]> {
@@ -46,7 +44,6 @@ export async function getAllProducts(
   }));
 }
 
-// Tek bir ürünü ID ile al
 export async function getProductById(
   id: string,
   goldPrice: number
