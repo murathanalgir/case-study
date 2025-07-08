@@ -5,7 +5,8 @@ import { getAllProducts } from "@/app/lib/productService";
 
 interface Params { params: { id: string } }
 
-export async function GET(_req: Request, { params }: Params) {
+export async function GET( _req: Request,
+  { params }: { params: { id: string } }) {
   try {
     const goldPrice = await getCurrentGoldPrice();
     const product = await getProductById(params.id, goldPrice);
@@ -23,4 +24,8 @@ export async function GET(_req: Request, { params }: Params) {
       { status: 500 }
     );
   }
+}
+
+function getProductById(id: string, goldPrice: number) {
+  throw new Error("Function not implemented.");
 }
